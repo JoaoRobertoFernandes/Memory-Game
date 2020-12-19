@@ -3,6 +3,7 @@ const cards = document.querySelectorAll(".card");
 let hasFlippedCard = false;
 let firstCard, secondCard;
 let lockBoard = false;
+var win = 0;
 /*---------Variables----------*/
 
 /*--------Flip---------*/
@@ -29,10 +30,27 @@ cards.forEach((card) => {card.addEventListener("click", flipCard)});
 function check() {
     if(firstCard.dataset.card === secondCard.dataset.card) {
         disable();
+        win++;
+        console.log(win);
+
+        /*---------Game Restart---------*/
+        if(win == 6) {
+            setTimeout(function(){
+                alert("Ok to Play Again!");
+            }, 2000)
+            setTimeout(function(){
+                if(alert){window.location.reload();}
+            },2000)
+            
+        }
+        /*---------Game Restart---------*/        
+        
         return;
-    }
+    } 
     unFlip();
+
 }
+ 
 /*--------Check cards---------*/
 
 /*--------Disable cards---------*/
@@ -69,8 +87,5 @@ function reset(){
         card.style.order = rand;
     })
 })();
+
 /*--------Shuffle cards---------*/
-
-
-
-
