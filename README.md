@@ -1,2 +1,3 @@
 # Memory-Game
- Memory game
+ - Memory game with JavaScript
+ - Developed in Dio bootcamp
